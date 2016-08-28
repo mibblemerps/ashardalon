@@ -1,4 +1,5 @@
 import "./main";
+import * as Facing from "./Facing";
 
 /**
  * The game map.
@@ -38,10 +39,12 @@ class Map {
 
             // Create new sprite for this tile.
             var newSprite = new PIXI.Sprite(this.tileTypes[placedTile.tileType].texture);
-            newSprite.x = cameraPosition.x + placedTile.position.x * this.tilePixels.width - (this.tilePixelDeadzone.width * placedTile.position.x);
-            newSprite.y = cameraPosition.y + placedTile.position.y * this.tilePixels.height - (this.tilePixelDeadzone.height * placedTile.position.y);
+            newSprite.x = cameraPosition.x + (this.tilePixels.width / 2) + placedTile.position.x * this.tilePixels.width - (this.tilePixelDeadzone.width * placedTile.position.x);
+            newSprite.y = cameraPosition.y + (this.tilePixels.height / 2) + placedTile.position.y * this.tilePixels.height - (this.tilePixelDeadzone.height * placedTile.position.y);
             newSprite.width = this.tilePixels.width;
             newSprite.height = this.tilePixels.height;
+            newSprite.pivot.set(this.tilePixels.width / 2, this.tilePixels.height / 2);
+            newSprite.rotation = Facing.facingToRadians(placedTile.facing);
 
             // Place sprite
             this.placedSprites.push(newSprite);
