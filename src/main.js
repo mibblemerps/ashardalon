@@ -10,6 +10,8 @@ const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels aro
 
 var tileTypes;
 
+var cameraPosition = {x: 10, y: 10};
+
 // Array of all the placed tiles.
 var placedTiles = [];
 
@@ -66,8 +68,8 @@ function renderPlacedTileSprites() {
         // Create new sprite for this tile.
         var newSprite = new PIXI.Sprite(tileTypes[placedTile.tileType].texture);
         //console.log(newSprite);
-        newSprite.x = placedTile.position.x * TILE_PIXELS.width - (TILE_PIXEL_DEADZONE.width * placedTile.position.x);
-        newSprite.y = placedTile.position.y * TILE_PIXELS.height - (TILE_PIXEL_DEADZONE.height * placedTile.position.y);
+        newSprite.x = cameraPosition.x + placedTile.position.x * TILE_PIXELS.width - (TILE_PIXEL_DEADZONE.width * placedTile.position.x);
+        newSprite.y = cameraPosition.y + placedTile.position.y * TILE_PIXELS.height - (TILE_PIXEL_DEADZONE.height * placedTile.position.y);
         newSprite.width = TILE_PIXELS.width;
         newSprite.height = TILE_PIXELS.height;
 
