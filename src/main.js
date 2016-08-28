@@ -6,6 +6,7 @@ import Tile from "./Tile";
 // Constants
 const ASSET_URL = "assets"; // base url where assets are stored
 const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
+const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels around the tiles where other tiles can overlap. This allows the tile's tabs to overlap properly.
 
 var tileTypes;
 
@@ -42,6 +43,8 @@ tileTypes = loadTileTypes();
 // Place initial tile
 placedTiles.push(new Tile(1, {x: 0, y: 0}));
 placedTiles.push(new Tile(1, {x: 0, y: 1}));
+placedTiles.push(new Tile(1, {x: 1, y: 0}));
+placedTiles.push(new Tile(1, {x: 2, y: 0}));
 
 // Init rendering
 var stage = new PIXI.Container();
@@ -63,8 +66,8 @@ function renderPlacedTileSprites() {
         // Create new sprite for this tile.
         var newSprite = new PIXI.Sprite(tileTypes[placedTile.tileType].texture);
         //console.log(newSprite);
-        newSprite.x = placedTile.position.x * TILE_PIXELS.width;
-        newSprite.y = placedTile.position.y * TILE_PIXELS.height;
+        newSprite.x = placedTile.position.x * TILE_PIXELS.width - (TILE_PIXEL_DEADZONE.width * placedTile.position.x);
+        newSprite.y = placedTile.position.y * TILE_PIXELS.height - (TILE_PIXEL_DEADZONE.height * placedTile.position.y);
         newSprite.width = TILE_PIXELS.width;
         newSprite.height = TILE_PIXELS.height;
 
