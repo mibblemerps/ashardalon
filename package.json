@@ -1,0 +1,18 @@
+{
+  "name": "ashardalon",
+  "version": "0.0.0",
+  "description": "",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mitchell Nelson <me@mitchfizz05.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "laravel-elixir": "~6.0.0-10",
+    "laravel-elixir-browserify-official": "~0.1.3",
+    "babel-preset-es2015": "~6.14.0",
+    "babel-preset-react": "~6.11.1"
+  }
+}
