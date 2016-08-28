@@ -48,9 +48,9 @@ map = new Map(tileTypes, {
 
 // Place some testing tiles.
 map.placeTile(new Tile(1, {x: 0, y: 0}));
-map.placeTile(new Tile(1, {x: 0, y: 1}));
-map.placeTile(new Tile(1, {x: 1, y: 0}));
-map.placeTile(new Tile(1, {x: 2, y: 0}));
+map.placeTile(new Tile(3, {x: 0, y: 1}));
+map.placeTile(new Tile(7, {x: 1, y: 0}));
+map.placeTile(new Tile(8, {x: 2, y: 0}));
 
 // Init rendering
 var stage = new PIXI.Container();
