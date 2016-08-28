@@ -3,6 +3,7 @@ require("pixi.js");
 import TileType from "./TileType";
 import Tile from "./Tile";
 import Map from "./Map";
+import * as Keyboard from "./Keyboard";
 
 // Constants
 const ASSET_URL = "assets"; // base url where assets are stored
@@ -57,6 +58,9 @@ var stage = new PIXI.Container();
 var renderer = PIXI.autoDetectRenderer(800, 600);
 document.body.appendChild(renderer.view);
 
+// Init input
+Keyboard.bindEventHandlers(window);
+
 
 // Begin render loop.
 requestAnimationFrame(animate);
@@ -67,4 +71,19 @@ function animate() {
     requestAnimationFrame(animate);
     renderer.render(stage);
 }
+
+setInterval(function () {
+    if (Keyboard.isKeyDown("w")) {
+        cameraPosition.y -= 1;
+    }
+    if (Keyboard.isKeyDown("s")) {
+        cameraPosition.y += 1;
+    }
+    if (Keyboard.isKeyDown("a")) {
+        cameraPosition.x -= 1;
+    }
+    if (Keyboard.isKeyDown("d")) {
+        cameraPosition.x += 1;
+    }
+}, 10);
 
