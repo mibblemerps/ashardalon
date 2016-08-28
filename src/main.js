@@ -20,30 +20,8 @@ var cameraPosition = {x: 10, y: 10};
 // Map object.
 var map;
 
-/**
- * Load game tile types...
- */
-function loadTileTypes() {
-    console.log("Loading tile types...");
-
-    var tileTypeConfig = require("../assets/tiles/tiles.json");
-    var tileTypes = {};
-
-    for (var tileTypeId in tileTypeConfig) {
-        if (!tileTypeConfig.hasOwnProperty(tileTypeId)) { continue; }
-        var tileTypeDef = tileTypeConfig[tileTypeId];
-        var id = parseInt(tileTypeId);
-
-        var tileTexture = PIXI.Texture.fromImage(ASSET_URL + "/tiles/" + tileTypeDef.texture);
-        tileTypes[id] = new TileType(id, tileTexture, tileTypeDef.encounter);
-    }
-
-    console.log("Loaded " + Object.keys(tileTypes).length + " tiles!");
-
-    return tileTypes;
-}
 // Load tile types
-tileTypes = loadTileTypes();
+tileTypes = TileType.loadTileTypes(require("../assets/tiles/tiles.json"), ASSET_URL);
 
 // Initialise the map.
 map = new Map(tileTypes, {
