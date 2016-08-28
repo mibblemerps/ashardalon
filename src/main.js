@@ -2,6 +2,9 @@ require("pixi.js");
 
 import TileType from "./TileType";
 
+// Constants
+const ASSET_URL = "assets";
+
 var tileTypes;
 
 /**
@@ -35,7 +38,7 @@ document.body.appendChild(renderer.view);
 requestAnimationFrame(animate);
 
 // Add a test tile for testing.
-var testTileTexture = PIXI.Texture.fromImage("assets/tiles/white01.png");
+var testTileTexture = PIXI.Texture.fromImage(ASSET_URL + "/tiles/" + tileTypes[1].texture);
 var testTile = new PIXI.Sprite(testTileTexture);
 stage.addChild(testTile);
 
