@@ -9,6 +9,7 @@ import * as Keyboard from "./Keyboard";
 const ASSET_URL = "assets"; // base url where assets are stored
 const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
 const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels around the tiles where other tiles can overlap. This allows the tile's tabs to overlap properly.
+const CAMERA_MOVEMENT_SPEED = 1.22; // Speed the camera moves when pressing WASD.
 
 var tileTypes;
 
@@ -74,16 +75,16 @@ function animate() {
 
 setInterval(function () {
     if (Keyboard.isKeyDown("w")) {
-        cameraPosition.y -= 1;
+        cameraPosition.y += CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("s")) {
-        cameraPosition.y += 1;
+        cameraPosition.y -= CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("a")) {
-        cameraPosition.x -= 1;
+        cameraPosition.x += CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("d")) {
-        cameraPosition.x += 1;
+        cameraPosition.x -= CAMERA_MOVEMENT_SPEED;
     }
 }, 10);
 
