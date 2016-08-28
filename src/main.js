@@ -34,7 +34,7 @@ document.body.appendChild(renderer.view);
 
 requestAnimationFrame(animate);
 
-// Add a dashpone for testing :3
+// Add a test tile for testing.
 var testTileTexture = PIXI.Texture.fromImage("assets/tiles/white01.png");
 var testTile = new PIXI.Sprite(testTileTexture);
 stage.addChild(testTile);
