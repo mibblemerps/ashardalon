@@ -6,10 +6,10 @@ import Map from "./Map";
 import * as Keyboard from "./Keyboard";
 
 // Constants
-const ASSET_URL = "assets"; // base url where assets are stored
-const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
-const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels around the tiles where other tiles can overlap. This allows the tile's tabs to overlap properly.
-const CAMERA_MOVEMENT_SPEED = 1.22; // speed the camera moves when pressing WASD.
+export const ASSET_URL = "assets"; // base url where assets are stored
+export const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
+export const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels around the tiles where other tiles can overlap. This allows the tile's tabs to overlap properly.
+export const CAMERA_MOVEMENT_SPEED = 1.22; // speed the camera moves when pressing WASD.
 
 // Types of tiles. Loaded from assets/tiles/tiles.json
 var tileTypes;
