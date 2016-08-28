@@ -1,8 +1,8 @@
 {
   "name": "ashardalon",
   "version": "0.0.0",
-  "description": "",
-  "main": "build/main.js",
+  "description": "Theoretically will end up like a computer version of *D&D: Wrath of Ashardalon Board Game* (https://boardgamegeek.com/boardgame/66356/dungeons-dragons-wrath-ashardalon-board-game)",
+  "main": "build/build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
