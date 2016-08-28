@@ -1,5 +1,6 @@
 /*
 Credit: https://gist.github.com/danharper/3ca2273125f500429945
+This gulpfile is a luxury, thank that person for making it possible.
  */
 
 var gulp = require('gulp');
