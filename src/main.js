@@ -2,6 +2,7 @@ require("pixi.js");
 
 import TileType from "./TileType";
 import Tile from "./Tile";
+import Map from "./Map";
 
 // Constants
 const ASSET_URL = "assets"; // base url where assets are stored
@@ -11,10 +12,7 @@ const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels aro
 var tileTypes;
 
 var cameraPosition = {x: 10, y: 10};
-
-// Array of all the placed tiles.
-var placedTiles = [];
-
+var map;
 var placedTileSprites = [];
 
 /**
@@ -42,47 +40,29 @@ function loadTileTypes() {
 // Load tile types
 tileTypes = loadTileTypes();
 
-// Place initial tile
-placedTiles.push(new Tile(1, {x: 0, y: 0}));
-placedTiles.push(new Tile(1, {x: 0, y: 1}));
-placedTiles.push(new Tile(1, {x: 1, y: 0}));
-placedTiles.push(new Tile(1, {x: 2, y: 0}));
+// Initialise the map.
+map = new Map(tileTypes, {
+    "tile_pixels": TILE_PIXELS,
+    "tile_pixel_deadzone": TILE_PIXEL_DEADZONE
+});
+
+// Place some testing tiles.
+map.placeTile(new Tile(1, {x: 0, y: 0}));
+map.placeTile(new Tile(1, {x: 0, y: 1}));
+map.placeTile(new Tile(1, {x: 1, y: 0}));
+map.placeTile(new Tile(1, {x: 2, y: 0}));
 
 // Init rendering
 var stage = new PIXI.Container();
 var renderer = PIXI.autoDetectRenderer(800, 600);
 document.body.appendChild(renderer.view);
 
-/**
- * Render placed tiles.
- */
-function renderPlacedTileSprites() {
-    // Remove old tile sprites
-    for (var spriteId in placedTileSprites) {
-        stage.removeChild(placedTileSprites[spriteId]);
-    }
-    placedTileSprites = [];
-
-    // Generate new sprites.
-    placedTiles.forEach(function (placedTile) {
-        // Create new sprite for this tile.
-        var newSprite = new PIXI.Sprite(tileTypes[placedTile.tileType].texture);
-        //console.log(newSprite);
-        newSprite.x = cameraPosition.x + placedTile.position.x * TILE_PIXELS.width - (TILE_PIXEL_DEADZONE.width * placedTile.position.x);
-        newSprite.y = cameraPosition.y + placedTile.position.y * TILE_PIXELS.height - (TILE_PIXEL_DEADZONE.height * placedTile.position.y);
-        newSprite.width = TILE_PIXELS.width;
-        newSprite.height = TILE_PIXELS.height;
-
-        placedTileSprites.push(newSprite);
-        stage.addChild(newSprite);
-    });
-}
 
 // Begin render loop.
 requestAnimationFrame(animate);
 function animate() {
     // Render placed tiles.
-    renderPlacedTileSprites();
+    map.render(stage, cameraPosition);
 
     requestAnimationFrame(animate);
     renderer.render(stage);
