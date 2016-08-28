@@ -4,7 +4,7 @@ import TileType from "./TileType";
 import Tile from "./Tile";
 
 // Constants
-const ASSET_URL = "assets";
+const ASSET_URL = "assets"; // base url where assets are stored
 const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
 
 var tileTypes;
