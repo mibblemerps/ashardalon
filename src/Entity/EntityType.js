@@ -14,6 +14,29 @@ class EntityType {
         this.armor = armor;
         this.experience = experience;
     }
+
+    static loadEntityTypes() {
+        console.log("Loading entity types...");
+
+        // Initialisations of entity types.
+        /*
+        ================= ADD NEW ENTITIES HERE =================
+         */
+        var allEntityTypes = [
+            new EntityHeskan()
+        ];
+
+        // Consolidate into an indexed array.
+        var entityTypes = {};
+        for (var i in allEntityTypes) {
+            if (!allEntityTypes.hasOwnProperty(i)) { continue; }
+            var entityType = allEntityTypes[i];
+
+            entityTypes[entityType.id] = entityType;
+        }
+
+        return entityTypes;
+    }
 }
 
 export default EntityType;

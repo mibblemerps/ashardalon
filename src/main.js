@@ -2,6 +2,8 @@ require("pixi.js");
 
 import TileType from "./TileType";
 import Tile from "./Tile";
+import EntityType from "./Entity/EntityType";
+import * as EntityTypeLoader from "./Entity/EntityTypeLoader";
 import Map from "./Map";
 import * as Keyboard from "./Keyboard";
 
@@ -9,10 +11,14 @@ import * as Keyboard from "./Keyboard";
 export const ASSET_URL = "assets"; // base url where assets are stored
 export const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
 export const TILE_PIXEL_DEADZONE = {width: 28, height: 28}; // the amount of pixels around the tiles where other tiles can overlap. This allows the tile's tabs to overlap properly.
+export const TILE_CELLS = {width: 4, height: 4}; // how many individual squares are there on a single tile.
 export const CAMERA_MOVEMENT_SPEED = 1.22; // speed the camera moves when pressing WASD.
 
 // Types of tiles. Loaded from assets/tiles/tiles.json
 var tileTypes;
+
+// Types of entities. Loaded by EntityType.js.
+var entityTypes;
 
 // Current camera offset.
 var cameraPosition = {x: 10, y: 10};
@@ -22,6 +28,10 @@ var map;
 
 // Load tile types
 tileTypes = TileType.loadTileTypes(require("../assets/tiles/tiles.json"), ASSET_URL);
+
+// Load entity types.
+entityTypes = EntityTypeLoader.loadEntityTypes();
+console.log(entityTypes);
 
 // Initialise the map.
 map = new Map(tileTypes, {
