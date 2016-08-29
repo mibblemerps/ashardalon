@@ -8,6 +8,8 @@ import * as EntityTypeLoader from "./Entity/EntityTypeLoader";
 import Map from "./Map";
 import * as Keyboard from "./Keyboard";
 
+import UiEntityLivingInfo from "./Ui/UiEntityLivingInfo";
+
 // Constants
 export const ASSET_URL = "assets"; // base url where assets are stored
 export const TILE_PIXELS = {width: 256, height: 256}; // size of each tile size unit in pixels. Virtually all tiles are 1x1 tile units in size.
@@ -47,7 +49,8 @@ map.placeTile(new Tile(7, {x: 1, y: 0}));
 map.placeTile(new Tile(8, {x: 2, y: 0}));
 
 // Place a testing entity.
-map.placeEntity(new Entity("wizard", {x: 9, y: 1}));
+var testWizard = new Entity("wizard", {x: 9, y: 1});
+map.placeEntity(testWizard);
 
 // Init rendering
 var stage = new PIXI.Container();
@@ -62,6 +65,10 @@ stage.addChild(board);
 // Init UI
 var spriteHeader = PIXI.Sprite.fromImage(ASSET_URL + "/header.png");
 stage.addChild(spriteHeader);
+
+var infoDialog = new UiEntityLivingInfo(testWizard, entityTypes[testWizard.entityType]);
+infoDialog.render(stage);
+
 
 // Init input
 Keyboard.bindEventHandlers(window);
