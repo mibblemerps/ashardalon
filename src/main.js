@@ -54,6 +54,15 @@ var stage = new PIXI.Container();
 var renderer = PIXI.autoDetectRenderer(800, 600);
 document.body.appendChild(renderer.view);
 
+// Add board
+var board = new PIXI.Container();
+board.y = 114;
+stage.addChild(board);
+
+// Init UI
+var spriteHeader = PIXI.Sprite.fromImage(ASSET_URL + "/header.png");
+stage.addChild(spriteHeader);
+
 // Init input
 Keyboard.bindEventHandlers(window);
 
@@ -62,7 +71,10 @@ Keyboard.bindEventHandlers(window);
 requestAnimationFrame(animate);
 function animate() {
     // Render placed tiles.
-    map.render(stage, cameraPosition);
+    map.render(board, cameraPosition);
+
+    // Render UI
+
 
     requestAnimationFrame(animate);
     renderer.render(stage);
@@ -72,16 +84,20 @@ function animate() {
 // TODO: work out a way to do this better.
 setInterval(function () {
     if (Keyboard.isKeyDown("w")) {
-        cameraPosition.y += CAMERA_MOVEMENT_SPEED;
+        //cameraPosition.y += CAMERA_MOVEMENT_SPEED;
+        board.y += CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("s")) {
-        cameraPosition.y -= CAMERA_MOVEMENT_SPEED;
+        //cameraPosition.y -= CAMERA_MOVEMENT_SPEED;
+        board.y -= CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("a")) {
-        cameraPosition.x += CAMERA_MOVEMENT_SPEED;
+        //cameraPosition.x += CAMERA_MOVEMENT_SPEED;
+        board.x += CAMERA_MOVEMENT_SPEED;
     }
     if (Keyboard.isKeyDown("d")) {
-        cameraPosition.x -= CAMERA_MOVEMENT_SPEED;
+        //cameraPosition.x -= CAMERA_MOVEMENT_SPEED;
+        board.x -= CAMERA_MOVEMENT_SPEED;
     }
 }, 10);
 
