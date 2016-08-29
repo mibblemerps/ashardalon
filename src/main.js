@@ -3,6 +3,7 @@ require("pixi.js");
 import TileType from "./TileType";
 import Tile from "./Tile";
 import EntityType from "./Entity/EntityType";
+import Entity from "./Entity/Entity";
 import * as EntityTypeLoader from "./Entity/EntityTypeLoader";
 import Map from "./Map";
 import * as Keyboard from "./Keyboard";
@@ -34,7 +35,7 @@ entityTypes = EntityTypeLoader.loadEntityTypes();
 console.log(entityTypes);
 
 // Initialise the map.
-map = new Map(tileTypes, {
+map = new Map(tileTypes, entityTypes, {
     "tile_pixels": TILE_PIXELS,
     "tile_pixel_deadzone": TILE_PIXEL_DEADZONE
 });
@@ -44,6 +45,9 @@ map.placeTile(new Tile(1, {x: 0, y: 0}));
 map.placeTile(new Tile(3, {x: 0, y: 1}));
 map.placeTile(new Tile(7, {x: 1, y: 0}));
 map.placeTile(new Tile(8, {x: 2, y: 0}));
+
+// Place a testing entity.
+map.placeEntity(new Entity("wizard", {x: 9, y: 1}));
 
 // Init rendering
 var stage = new PIXI.Container();
