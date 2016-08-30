@@ -54,8 +54,14 @@ map.placeEntity(testWizard);
 
 // Init rendering
 var stage = new PIXI.Container();
-var renderer = PIXI.autoDetectRenderer(800, 600);
+var renderer = PIXI.autoDetectRenderer(document.documentElement.clientWidth, document.documentElement.clientHeight);
 document.body.appendChild(renderer.view);
+window.addEventListener("resize", function (e) {
+    // Update game size for window.
+    renderer.resize(document.documentElement.clientWidth, document.documentElement.clientHeight);
+    renderer.render(stage);
+
+});
 
 // Add board
 var board = new PIXI.Container();
