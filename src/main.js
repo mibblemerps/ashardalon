@@ -66,6 +66,9 @@ window.addEventListener("resize", function (e) {
 var board = new PIXI.Container();
 stage.addChild(board);
 
+// Render the board.
+map.render(board, cameraPosition);
+
 // Init input
 Keyboard.bindEventHandlers(window);
 
@@ -73,9 +76,6 @@ Keyboard.bindEventHandlers(window);
 // Begin render loop.
 requestAnimationFrame(animate);
 function animate() {
-    // Render the map.
-    map.render(board, cameraPosition);
-
     requestAnimationFrame(animate);
     renderer.render(stage);
 }
