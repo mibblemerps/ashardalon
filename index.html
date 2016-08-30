@@ -5,10 +5,63 @@
     <title>Ashardalon</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/game.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/open-sans-fontface/open-sans.css">
 </head>
 <body>
-    <div id="modal-entityInfo" class="modal">
-        <header class="modal-header">Entity Info</header>
+    <div id="modal-entityInfo" class="modal modal-entityInfo">
+        <div class="entityCondition">
+            <img id="entityCondition-dazed" src="assets/tokens/dazed.png" alt="Dazed" style="display:inline;">
+            <img id="entityCondition-poison" src="assets/tokens/dazed.png" alt="Poisoned">
+        </div>
+        <div class="headerStrip">
+            <div class="entityIcon-wrapper">
+                <img class="entityIcon" src="assets/entities/player/wizard.png" alt="Wizard">
+            </div>
+            <div class="entityMeta-wrapper">
+                <div>
+                    <div class="entityMeta-name">Heskan <span class="entityMeta-subtitle">Dragonborn Wizard</span></div>
+                </div>
+                <div class="entityMeta-items">
+                    <img class="entityMeta-items-item" src="assets/tokens/token_gear.png" alt="Gear">
+                </div>
+                <div class="entityMeta-health">
+                    <img class="entityMeta-health-1hp" src="assets/tokens/1hp.png" alt="HP">
+                    <img class="entityMeta-health-1hp" src="assets/tokens/1hp.png" alt="HP">
+                    <img class="entityMeta-health-1hp" src="assets/tokens/1hp.png" alt="HP">
+                    <img class="entityMeta-health-1hp" src="assets/tokens/1hp.png" alt="HP">
+                    <img class="entityMeta-health-1hp" src="assets/tokens/1hp.png" alt="HP">
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="entityInfo-tactics">
+                <ul>
+                    <li><strong>Mage Hand</strong> You can open any door on your Hero's tile, not just adjacent doors.</li>
+                    <li><strong>Critical Hit</strong> When you attack and roll a natural 20, you deal +1 damage.</li>
+                </ul>
+            </div>
+            <div class="entityInfo-stats">
+                <h2>Stats</h2>
+                <table>
+                    <tr>
+                        <td class="stat-name" title="Armour Class">AC</td>
+                        <td class="stat-value" id=stat-armour>15</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" title="Health Points">HP</td>
+                        <td class="stat-value" id=stat-hp>8</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" title="Speed">SPEED</td>
+                        <td class="stat-value" id=stat-speed>6</td>
+                    </tr>
+                    <tr>
+                        <td class="stat-name" title="Surge Value">SURGE</td>
+                        <td class="stat-value" id=stat-surge>4 HP</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="build/build.js"></script>

@@ -20,6 +20,7 @@
     "babelify": "~7.3.0"
   },
   "dependencies": {
+    "open-sans-fontface": "^1.4.0",
     "pixi.js": "~4.0.0"
   }
 }
