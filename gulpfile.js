@@ -1,7 +1,8 @@
 /*
- Credit: https://gist.github.com/danharper/3ca2273125f500429945
- This gulpfile is a luxury, thank that person for making it possible.
+Credit: https://gist.github.com/madhums/7c483fa277343e6a3712
  */
+
+'use strict';
 
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
@@ -11,13 +12,14 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var babel = require('babelify');
 
-function compile(watch) {
-    var bundler = watchify(browserify('./src/main.js', { debug: true }).transform(babel, { presets: ['es2015'] }));
+function compile (watch) {
+    var bundler = browserify('./src/main.js', { debug: true }).transform(babel, { presets: ['es2015'] });
+    var watcher = watch ? watchify(bundler) : '';
 
-    function rebundle() {
-        bundler.bundle()
+    function rebundle () {
+        return bundler.bundle()
             .on('error', function(err) { console.error(err); this.emit('end'); })
-            .pipe(source('build.js'))
+            .pipe(source("build.js"))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
             .pipe(sourcemaps.write('./'))
@@ -25,20 +27,20 @@ function compile(watch) {
     }
 
     if (watch) {
-        bundler.on('update', function() {
+        watcher.on('update', function () {
             console.log('-> bundling...');
             rebundle();
         });
     }
 
-    rebundle();
+    return rebundle();
 }
 
 function watch() {
     return compile(true);
 }
 
-gulp.task('build', function() { return compile(); });
-gulp.task('watch', function() { return watch(); });
+gulp.task('build', function () { return compile(); });
+gulp.task('watch', function () { return watch(); });
 
 gulp.task('default', ['watch']);
