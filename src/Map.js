@@ -16,8 +16,6 @@ class Map {
         this.tilePixels = (options["tile_pixels"] === undefined) ? {width: 256, height: 256} : options["tile_pixels"];
         this.tilePixelDeadzone = (options["tile_pixel_deadzone"] === undefined) ? {width: 0, height: 0} : options["tile_pixel_deadzone"];
         this.tileCells = (options["tile_cells"] === undefined) ? {width: 4, height: 4} : options["tile_cells"];
-
-        console.log(this.tilePixels);
     }
 
     placeTile(tile) {

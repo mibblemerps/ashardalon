@@ -32,7 +32,7 @@ tileTypes = TileType.loadTileTypes(require("../assets/tiles/tiles.json"), ASSET_
 
 // Load entity types.
 entityTypes = EntityTypeLoader.loadEntityTypes();
-console.log(entityTypes);
+console.log("Loaded " + Object.keys(entityTypes).length + " entity types!");
 
 // Initialise the map.
 map = new Map(tileTypes, entityTypes, {
