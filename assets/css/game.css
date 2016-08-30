@@ -8,3 +8,32 @@ html, body {
     overflow: hidden;
 }
 
+/* Modals */
+.modal {
+    position: absolute;
+
+    width: 520px;
+    height: 420px;
+
+    margin: auto;
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(244, 244, 244, 0.95);
+    box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+}
+
+.modal header.modal-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px;
+
+    background-color: #393939;
+    color: white;
+
+    font-family: "arial", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
