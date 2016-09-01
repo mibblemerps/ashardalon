@@ -1,6 +1,11 @@
 import * as Main from "../main";
 
 class Entity {
+    /**
+     *
+     * @param entityType EntityType Type of entity.
+     * @param position {{x: number, y: number}} Position of the entity when it's placed into the map.
+     */
     constructor(entityType, position) {
         this.entityType = entityType;
         this.position = position;

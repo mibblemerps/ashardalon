@@ -47,7 +47,7 @@ map.placeTile(new Tile(7, {x: 1, y: 0}));
 map.placeTile(new Tile(8, {x: 2, y: 0}));
 
 // Place a testing entity.
-var testWizard = new Entity("wizard", {x: 9, y: 1});
+var testWizard = new Entity(entityTypes["wizard"], {x: 9, y: 1});
 map.placeEntity(testWizard);
 
 // Init rendering

@@ -60,14 +60,13 @@ class Map {
         // Plop monsters.
         for (var i in this.placedEntities) {
             var entity = this.placedEntities[i];
-            var entityType = this.entityTypes[entity.entityType];
 
             // Create new sprite for this entity.
-            newSprite = new PIXI.Sprite(entityType.texture);
+            newSprite = new PIXI.Sprite(entity.entityType.texture);
             newSprite.x = cameraPosition.x + entity.position.x * (this.tilePixels.width / this.tileCells.width);
             newSprite.y = cameraPosition.y + entity.position.y * (this.tilePixels.height / this.tileCells.height);
-            newSprite.width = (this.tilePixels.width / this.tileCells.width) * entityType.size.width;
-            newSprite.height = (this.tilePixels.height / this.tileCells.height) * entityType.size.height;
+            newSprite.width = (this.tilePixels.width / this.tileCells.width) * entity.entityType.size.width;
+            newSprite.height = (this.tilePixels.height / this.tileCells.height) * entity.entityType.size.height;
 
             // Place sprite
             this.placedSprites.push(newSprite);
