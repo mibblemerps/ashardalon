@@ -39,14 +39,6 @@ html, body {
 
 /* Entity info modal */
 .modal-entityInfo { width: 620px; top: 120px; }
-.modal-entityInfo .entityCondition {
-    position: absolute;
-    width: 100%;
-    height: 90px;
-    margin-top: -90px;
-    text-align: center;
-}
-.modal-entityInfo .entityCondition img { height: 100px; display: none; /* hidden by default */ }
 
 .modal-entityInfo .headerStrip {
     width: 100%;
@@ -59,7 +51,26 @@ html, body {
     display: inline-block;
     vertical-align: top;
 }
-.modal-entityInfo .headerStrip img.entityIcon { height: 130px; margin: 10px 14px; }
+.modal-entityInfo .headerStrip img.entityIcon { height: 130px; max-width: 130px; margin: 10px 14px; }
+.modal-entityInfo .entityCondition {
+    position: absolute;
+    width: 130px;
+    margin: -42px 14px 0 14px;
+    text-align: center;
+}
+.modal-entityInfo .entityCondition-condition {
+    display: none; /* Entity conditions are hidden by default */
+
+    color: gold;
+    font-family: "helvetica", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.95);
+    text-transform: uppercase;
+
+}
+.modal-entityInfo #entityCondition-downed { color: #ff2723; text-shadow: 0 0 8px rgba(0, 0, 0, 0.95); }
+
 .modal-entityInfo .headerStrip .entityMeta-wrapper {
     display: inline-block;
     vertical-align: top;
