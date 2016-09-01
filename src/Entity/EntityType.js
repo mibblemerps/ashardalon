@@ -2,9 +2,12 @@
  * Represents an entity type.
  */
 class EntityType {
-    constructor(id, texture, size = {width: 1, height: 1},
+    constructor(id, name, subtitle, texture, size = {width: 1, height: 1},
                 category = null, attackable = false, health = null, armor = null, experience = 1) {
         this.id = id;
+        this.name = name;
+        this.subtitle = subtitle;
+
         this.texture = texture;
         this.size = size;
 

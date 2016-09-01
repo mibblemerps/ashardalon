@@ -15,8 +15,8 @@ class EntityInfoModal {
     show() {
         // Fill in data.
         var modal = $("#modal-entityInfo").show();
-        modal.find(".entityMeta-name").html(this.entity.entityType.id);
-        modal.find(".entityMeta-subtitle").html(this.entity.entityType.category);
+        modal.find(".entityMeta-name").html(this.entity.entityType.name);
+        modal.find(".entityMeta-subtitle").html(this.entity.entityType.subtitle);
         modal.find(".stat-armour").html(this.entity.entityType.armor);
         modal.find(".stat-hp").html(this.entity.entityType.health);
     }
