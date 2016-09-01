@@ -8,6 +8,7 @@ class Entity {
      */
     constructor(entityType, position) {
         this.entityType = entityType;
+        this.health = entityType.health;
         this.position = position;
     }
 
