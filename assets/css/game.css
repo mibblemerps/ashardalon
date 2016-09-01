@@ -103,7 +103,8 @@ html, body {
     display: inline-block;
     vertical-align: middle;
 }
-.modal-entityInfo .headerStrip .entityMeta-health .entityMeta-health-1hp { height: 36px; }
+.modal-entityInfo .headerStrip .entityMeta-health .entityMeta-health-hp-sample { display: none; }
+.modal-entityInfo .headerStrip .entityMeta-health .entityMeta-health-hp { height: 36px; }
 
 .modal-entityInfo .headerStrip .entityMeta-items .entityMeta-items-item {
     height: 64px;
