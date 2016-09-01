@@ -77,7 +77,7 @@ html, body {
     margin-top: 25px;
 }
 
-.modal-entityInfo .headerStrip .entityMeta-name {
+.modal-entityInfo .headerStrip .entityMeta-name-wrap {
     display: inline-block;
     margin-bottom: 5px;
 
@@ -88,7 +88,7 @@ html, body {
     color: white;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.85);
 }
-.modal-entityInfo .headerStrip .entityMeta-name .entityMeta-subtitle {
+.modal-entityInfo .headerStrip .entityMeta-name-wrap .entityMeta-subtitle {
     font-size: 14px;
     font-weight: lighter;
     color: rgba(255, 255, 255, 0.85);

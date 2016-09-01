@@ -8,19 +8,19 @@
     <link rel="stylesheet" type="text/css" href="node_modules/open-sans-fontface/open-sans.css">
 </head>
 <body>
-    <div id="modal-entityInfo" class="modal modal-entityInfo">
+    <div id="modal-entityInfo" class="modal modal-entityInfo" style="display:none;">
         <div class="headerStrip">
             <div class="entityIcon-wrapper">
                 <img class="entityIcon" src="assets/entities/player/wizard.png" alt="Wizard">
                 <div class="entityCondition">
-                    <span id="entityCondition-dazed" class="entityCondition-condition">Dazed</span>
-                    <span id="entityCondition-poisoned" class="entityCondition-condition">Poisoned</span>
-                    <span id="entityCondition-downed" class="entityCondition-condition">Downed</span>
+                    <span class="entityCondition-condition entityCondition-dazed">Dazed</span>
+                    <span class="entityCondition-condition entityCondition-poisoned">Poisoned</span>
+                    <span class="entityCondition-condition entityCondition-downed">Downed</span>
                 </div>
             </div>
             <div class="entityMeta-wrapper">
                 <div>
-                    <div class="entityMeta-name">Heskan <span class="entityMeta-subtitle">Dragonborn Wizard</span></div>
+                    <div class="entityMeta-name-wrap"><span class="entityMeta-name">Unnamed</span> <span class="entityMeta-subtitle">???</span></div>
                 </div>
                 <div class="entityMeta-items">
                     <img class="entityMeta-items-item" src="assets/tokens/token_gear.png" alt="Gear">
@@ -46,19 +46,19 @@
                 <table>
                     <tr>
                         <td class="stat-name" title="Armour Class">AC</td>
-                        <td class="stat-value" id=stat-armour>15</td>
+                        <td class="stat-value stat-armour" id=stat-armour>-</td>
                     </tr>
                     <tr>
                         <td class="stat-name" title="Health Points">HP</td>
-                        <td class="stat-value" id=stat-hp>8</td>
+                        <td class="stat-value stat-hp">-</td>
                     </tr>
                     <tr>
                         <td class="stat-name" title="Speed">SPEED</td>
-                        <td class="stat-value" id=stat-speed>6</td>
+                        <td class="stat-value stat-speed">-</td>
                     </tr>
                     <tr>
                         <td class="stat-name" title="Surge Value">SURGE</td>
-                        <td class="stat-value" id=stat-surge>4 HP</td>
+                        <td class="stat-value stat-surge">- HP</td>
                     </tr>
                 </table>
             </div>

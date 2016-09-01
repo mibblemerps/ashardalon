@@ -1,4 +1,5 @@
 require("pixi.js");
+import $ from "jquery";
 
 import TileType from "./TileType";
 import Tile from "./Tile";
@@ -7,6 +8,8 @@ import Entity from "./Entity/Entity";
 import * as EntityTypeLoader from "./Entity/EntityTypeLoader";
 import Map from "./Map";
 import * as Keyboard from "./Keyboard";
+
+import EntityInfoModal from "./Ui/EntityInfoModal";
 
 // Constants
 export const ASSET_URL = "assets"; // base url where assets are stored
@@ -68,6 +71,12 @@ stage.addChild(board);
 
 // Render the board.
 map.render(board, cameraPosition);
+
+$(document).ready(function () {
+    // TODO: debug code
+    var entityInfo = new EntityInfoModal(testWizard);
+    entityInfo.show();
+});
 
 // Init input
 Keyboard.bindEventHandlers(window);
