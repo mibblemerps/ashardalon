@@ -52,6 +52,8 @@ map.placeTile(new Tile(8, {x: 2, y: 0}));
 // Place a testing entity.
 var testWizard = new Entity(entityTypes["wizard"], {x: 9, y: 1});
 map.placeEntity(testWizard);
+var testVistra = new Entity(entityTypes["vistra"], {x: 2, y: 2});
+map.placeEntity(testVistra);
 
 // Init rendering
 var stage = new PIXI.Container();
@@ -74,7 +76,7 @@ map.render(board, cameraPosition);
 
 $(document).ready(function () {
     // TODO: debug code
-    var entityInfo = new EntityInfoModal(testWizard);
+    var entityInfo = new EntityInfoModal(testVistra);
     entityInfo.show();
 });
 

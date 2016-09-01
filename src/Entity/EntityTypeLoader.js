@@ -4,13 +4,15 @@ TODO: work out why circular depdencies prevent me from having this in the Entity
  */
 
 import EntityHeskan from "./Player/EntityHeskan";
+import EntityVistra from "./Player/EntityVistra";
 
 
 /*
  ================= ADD NEW ENTITIES HERE =================
  */
 var allEntityTypes = [
-    new EntityHeskan()
+    new EntityHeskan(),
+    new EntityVistra()
 ];
 
 
