@@ -18,7 +18,7 @@ class EntityInfoModal {
         modal.find(".entityMeta-name").html(this.entity.entityType.name);
         modal.find(".entityMeta-subtitle").html(this.entity.entityType.subtitle);
         modal.find(".stat-armour").html(this.entity.entityType.armor);
-        modal.find(".stat-hp").html(this.entity.entityType.health);
+        modal.find(".stat-hp").html(this.entity.entityType.health + " HP");
         modal.find(".stat-speed").html(this.entity.entityType.speed);
         modal.find(".stat-surge").html(this.entity.entityType.surgeValue + " HP");
         modal.find(".entityIcon")[0].src = this.entity.entityType.texture.baseTexture.imageUrl;
